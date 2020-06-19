@@ -1,0 +1,19 @@
+:host{
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main{
+    width:600px;
+    height:500px;
+    background:rgba(0, 0, 0, 0.678);
+    border-radius: 10px;
+}
+
+@media (max-width: 500px){
+    main{
+        width: 100%;
+    }
+}
