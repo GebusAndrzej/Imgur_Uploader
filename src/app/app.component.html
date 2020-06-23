@@ -1,3 +1,3 @@
-<app-uploader></app-uploader>
-<app-gallery></app-gallery>
+<app-uploader (galleryupdate)="appgallery.update()"></app-uploader>
+<app-gallery #appgallery></app-gallery>
 <router-outlet></router-outlet>

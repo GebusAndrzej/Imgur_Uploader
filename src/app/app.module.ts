@@ -7,6 +7,10 @@ import { UploaderComponent } from './components/uploader/uploader.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import {MatButtonModule} from '@angular/material/button';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxDropzoneModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

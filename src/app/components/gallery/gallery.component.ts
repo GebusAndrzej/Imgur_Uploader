@@ -12,4 +12,8 @@ export class GalleryComponent implements OnInit {
   ngOnInit() {
   }
 
+  update(){
+    console.log("updating");
+  }
+
 }

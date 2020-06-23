@@ -1,0 +1,11 @@
+:host{
+    background:rgba(0, 0, 0, 0.678);
+    display:flex;
+    padding:40px;
+    color:white;
+}
+.uploads{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

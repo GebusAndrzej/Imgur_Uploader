@@ -7,13 +7,36 @@
 }
 main{
     width:600px;
-    height:500px;
+    height:400px;
     background:rgba(0, 0, 0, 0.678);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    padding:20px;
+}
+.dropzone{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+
+    height:250px;
+    color: #fff;
+    text-shadow: 1px 1px black;
+    background: #333;
+    overflow-y: auto;
 }
 
-@media (max-width: 500px){
+.dropzone ngx-dropzone-label {
+    bottom:0;
+}
+
+@media (max-width: 620px){
     main{
         width: 100%;
+        padding:2px;
     }
 }

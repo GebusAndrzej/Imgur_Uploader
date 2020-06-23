@@ -21,8 +21,9 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "ngx-dropzone": "^2.2.2",
     "rxjs": "~6.4.0",
-    "tslib": "^1.10.0",
+    "tslib": "^1.13.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
