@@ -30,27 +30,26 @@ export class UploaderComponent implements OnInit {
     this.files.splice(this.files.indexOf(event), 1);
   }
 
+  //send all images from dropzone container
   send(){
     if (this.files.length>0){
       for (let i=0;i<this.files.length;i++){
         
+        // first parse image to base64
         this.readFile(this.files[i]).then(fileContents => {
-          // Put this string in a request body to upload it to an API.
-          //console.log(fileContents);
-          /*
-          this.uploadservice.uploadImage(fileContents).subscribe((ret)=>{
-            console.dir(ret);
-            this.galleryupdate.emit(ret.data.id);
-          })
-          */
-         this.uploadservice.upload2(fileContents).then((ret:any)=>{
+
+          // remove image from array and send to service
+          this.onRemove(this.files[i]);
+          this.uploadservice.upload2(fileContents).then((ret:any)=>{
+
+            //after getting response from service, call gallery component to update view
             ret = JSON.parse(ret.target.response);
             this.galleryupdate.emit(ret.data.id);
          })
         })
         
       }
-      window.scrollBy(0,300);
+      
     }
   }
 

@@ -1,4 +1,14 @@
-# ImgurUploader
+# Imgur Uploader
+Simple application to upload images to imgur.
+
+## [Watch Demo](https://gebusandrzej.github.io/Imgur_Uploader/)
+
+Used:
+- Imgur API
+- Angular 8
+- Angular Material
+- ngx-dropzone
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 

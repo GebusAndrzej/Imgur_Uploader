@@ -8,8 +8,54 @@
 .uploads{
     display:flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
 }
-.uploads div img{
-    max-width:200px;
+.uploads .galleryitem img{
+    max-width:300px;
+    border-radius: 5px;
+}
+.galleryitem{
+    position: relative;
+}
+.galleryitem a{
+    position: absolute;
+    bottom:4px;
+    width:50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity:0;
+    text-decoration: none;
+    transition-duration: .7s;
+    color:white;
+    text-shadow: 1px 1px 1px black;
+    cursor:pointer;
+    background: linear-gradient(to top,rgb(17, 17, 17) 10%,transparent);
+    padding:5px;
+    box-sizing: border-box;
+}
+.pagelink{
+    left:0;
+}
+.copylink{
+    left:50%;
+}
+.removeitem{
+    bottom:calc(100% - 34px) !important;
+    width:15% !important;
+    background: transparent !important;
+}
+.removeitem:hover{
+    color:red !important;
+}
+
+.galleryitem:hover a{
+    visibility: visible;
+    opacity:1;
+}
+.galleryitem a:hover{
+    color:green;
 }

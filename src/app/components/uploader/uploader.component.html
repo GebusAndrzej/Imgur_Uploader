@@ -1,13 +1,16 @@
 <main>
-    <div class="dropzone" ngx-dropzone [accept]="'image/*,video/mp4,video/webm'" (change)="onSelect($event)">
+    <div class="dropzone" ngx-dropzone [accept]="'image/*'" (change)="onSelect($event)">
         <ngx-dropzone-label>
             <div>
-                <h2>Add or drop image</h2>
+                <h2>Add or drop image <mat-icon>queue</mat-icon></h2>
             </div>
         </ngx-dropzone-label>
         <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
             <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
         </ngx-dropzone-image-preview>
     </div>
-    <button mat-raised-button color='accent' (click)="send()" [disabled]="files.length===0">Send</button>
+    <button mat-raised-button 
+            color='accent' 
+            (click)="send()" 
+            [disabled]="files.length===0">Send</button>
 </main>

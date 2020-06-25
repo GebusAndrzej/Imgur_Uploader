@@ -1,6 +1,26 @@
 <h2>Your Uploads</h2>
 <section class="uploads" *ngIf="this.images!=null">
-    <div *ngFor="let item of this.images"> 
+    <div *ngFor="let item of this.images" class="galleryitem"> 
         <img src="{{item.data.link}}">
+        <a class='pagelink' 
+            target="_blank" 
+            href="{{item.data.link}}"
+            matTooltip="Visit on website"
+            matTooltipPosition="above">
+            <mat-icon>language</mat-icon>
+        </a>
+        <a class='copylink'
+            (click)="copy(item.data.link)"
+            matTooltip="Copy to clipboard"
+            matTooltipPosition="above">
+            <mat-icon>link</mat-icon>
+        </a>
+        <a class="removeitem"
+            (click)="openSnackBar(item)"
+            matTooltip="Forget image"
+            matTooltipPosition="right">
+            <mat-icon>delete</mat-icon>
+        </a>
+        
     </div>
 </section>

@@ -10,6 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon'
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     NgxDropzoneModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

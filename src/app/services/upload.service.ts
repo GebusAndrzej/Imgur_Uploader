@@ -11,25 +11,24 @@ export class UploadService {
   readonly userid = "Client-ID b84cfa028cbd253";
 
   constructor(private http:HttpClient) { }
-  
+
+  // had to use xhr request, because angular's POST won't send whole image
   async upload2(image:any){
     return new Promise((resolve,reject) => {
+
+      // cut the data tags
       let img=image.substr(image.indexOf(',') + 1); 
 
       let fd =new FormData();
-      let ret;
       fd.append('image',img);
+      
   
       let xhr = new XMLHttpRequest();
       xhr.open('POST', 'https://api.imgur.com/3/image', true);
-      xhr.onload = resolve/*() => {
-        ret = (JSON.parse(xhr.responseText));
-        return new Promise (JSON.parse(xhr.responseText));
-      }
-      */
+      
+      xhr.onload = resolve;
       xhr.onerror = reject;
-      //xhr.responseType = 'json';
-      //xhr.withCredentials = true;
+
       xhr.setRequestHeader("Authorization", this.userid);
   
       xhr.send(fd);
@@ -37,32 +36,8 @@ export class UploadService {
     
   }
 
-  uploadImage(image:any){
-    //strip tags
-    let img=image.substr(image.indexOf(',') + 1); 
-    console.dir(img);
 
-    //check if its image
-    /*
-    if (image.substr(5,5)=='image'){
-      var param= new HttpParams()
-      .set('image',img);
-    }else{
-      
-    }
-    */
-
-    const param= new HttpParams()
-      .append('image',img);
-
-    const header= new HttpHeaders({
-      'Authorization':this.userid
-    });
-    return this.http.post<ImageModel>('https://api.imgur.com/3/image',param,{headers:header});
-  }
-  
-
-
+  // get specify image from imgur api 
   getImage(id:string):Observable <ImageModel>{
     const Header= new HttpHeaders({
       'Authorization':this.userid
@@ -71,15 +46,5 @@ export class UploadService {
   }
 
 
-
-   _base64ToArrayBuffer(base64) {
-    var binary_string = window.atob(base64);
-    var len = binary_string.length;
-    var bytes = new Uint8Array(len);
-    for (var i = 0; i < len; i++) {
-        bytes[i] = binary_string.charCodeAt(i);
-    }
-    return bytes.buffer;
-}
 
 }

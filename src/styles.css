@@ -36,3 +36,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(37, 37, 37); 
   }
+
+  .snackbar {
+    background: #d4274d;
+    color:black;
+    font-weight: bolder;
+  }
