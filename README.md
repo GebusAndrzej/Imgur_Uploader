@@ -1,5 +1,5 @@
 # Imgur Uploader
-Simple application to upload images to imgur.
+Simple application to upload images to imgur and store links in localstorage.
 
 ## [Watch Demo](https://gebusandrzej.github.io/Imgur_Uploader/)
 
