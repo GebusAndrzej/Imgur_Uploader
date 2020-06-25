@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { UploadService } from 'src/app/services/upload.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ export class UploaderComponent implements OnInit {
 
   @Output() galleryupdate = new EventEmitter();
 
-  constructor() { }
+  constructor(private uploadservice: UploadService) { }
 
   ngOnInit() {
   }
@@ -31,14 +32,26 @@ export class UploaderComponent implements OnInit {
 
   send(){
     if (this.files.length>0){
-      this.readFile(this.files[0]).then(fileContents => {
-        // Put this string in a request body to upload it to an API.
-        console.log(fileContents);
-        window.scrollBy(0,300);
-        this.galleryupdate.emit("1");
-      })
+      for (let i=0;i<this.files.length;i++){
+        
+        this.readFile(this.files[i]).then(fileContents => {
+          // Put this string in a request body to upload it to an API.
+          //console.log(fileContents);
+          /*
+          this.uploadservice.uploadImage(fileContents).subscribe((ret)=>{
+            console.dir(ret);
+            this.galleryupdate.emit(ret.data.id);
+          })
+          */
+         this.uploadservice.upload2(fileContents).then((ret:any)=>{
+            ret = JSON.parse(ret.target.response);
+            this.galleryupdate.emit(ret.data.id);
+         })
+        })
+        
+      }
+      window.scrollBy(0,300);
     }
-    
   }
 
 

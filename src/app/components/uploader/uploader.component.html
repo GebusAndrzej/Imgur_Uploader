@@ -9,5 +9,5 @@
             <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
         </ngx-dropzone-image-preview>
     </div>
-    <button mat-raised-button color='accent' (click)="send()">Send</button>
+    <button mat-raised-button color='accent' (click)="send()" [disabled]="files.length===0">Send</button>
 </main>

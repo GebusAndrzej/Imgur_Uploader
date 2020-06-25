@@ -1,4 +1,6 @@
 <h2>Your Uploads</h2>
-<section class="uploads">
-
+<section class="uploads" *ngIf="this.images!=null">
+    <div *ngFor="let item of this.images"> 
+        <img src="{{item.data.link}}">
+    </div>
 </section>
